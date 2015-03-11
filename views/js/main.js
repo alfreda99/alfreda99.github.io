@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function() {
   elem.className = 'mover';
   elem.src = "images/pizza.png";
   elem.style.height = "100px";
-  elem.style.width = "73.333px";*/
+  elem.style.width = "73.333px";
 
   for (var i = 0; i < 200; i++) {
    /* elem = document.createElement('img');
