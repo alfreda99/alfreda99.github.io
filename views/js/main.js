@@ -529,8 +529,8 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var movingPizzas = document.getElementById("#movingPizzas1");
-  var elem= document.createElement('img');
+  var movingPizzas = document.getElementById("movingPizzas1");
+  var elem = document.createElement('img');
   elem.className = 'mover';
   elem.src = "images/pizza.png";
   elem.style.height = "100px";
