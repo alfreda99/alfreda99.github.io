@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var elem = "";
   var movingPizzas = document.getElementById("movingPizzas1");
   var windowWidth = window.innerWidth;
-  var numPizzas = (containerWidth / 330) * 5;
+  var numPizzas = (windowWidth / 330) * 5;
 
   for (var i = 0; i < numPizzas; i++) {
     elem = document.createElement('img');
