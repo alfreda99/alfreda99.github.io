@@ -424,7 +424,7 @@ var resizePizzas = function(size) {
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldwidth = elem.offsetWidth;
-    var windowwidth = document.getElementById("randomPizzas").offsetWidth;
+    var windowwidth = document.getElementById("randomPizzas").offsetWidth;//OPTIMIZATION: replaced all querySeletors with getElementById
     var oldsize = oldwidth / windowwidth;
 
     // TODO: change to 3 sizes? no more xl?
@@ -470,7 +470,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-var pizzasDiv = document.getElementById("randomPizzas");
+var pizzasDiv = document.getElementById("randomPizzas");// OPTIMIZATION: Moved decaration out side of for loop
 for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -502,8 +502,8 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
-  var phase = 0;
-  var scrolltop = Math.sin(document.body.scrollTop / 1250);
+  var phase = 0;  // OPTIMIZATION:  declared variable outside of for loop
+  var scrolltop = Math.sin(document.body.scrollTop / 1250); // OPTIMIZATION:  moved calculation outside of for loop
   window.performance.mark("mark_start_frame");
 
   for (var i = 0; i < items.length; i++) {
@@ -529,9 +529,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var elem = "";
-  var movingPizzas = document.getElementById("movingPizzas1");
-  var windowWidth = window.innerWidth;
-  var numPizzas = (windowWidth / 330) * 5;
+  var movingPizzas = document.getElementById("movingPizzas1"); // OPTIMIZATION: moved declaration outside of for loop
+  var windowWidth = window.innerWidth;     // OPTIMIZATION:  Calculate the number of pizzas to display based on
+  var numPizzas = (windowWidth / 330) * 5; // screen size; Divide by size of pizza then  multiply by 5 to create
+                                           // 5 rows of pizzas; 330 equals the width of pizza(74) + 256
 
   for (var i = 0; i < numPizzas; i++) {
     elem = document.createElement('img');

@@ -33,7 +33,7 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
-  backface-visibility: hidden;
+  backface-visibility: hidden; /* OPT: declared this attribute to hidden in order not to repaint entire page*/
 }
 
 .randomPizzaContainer {
